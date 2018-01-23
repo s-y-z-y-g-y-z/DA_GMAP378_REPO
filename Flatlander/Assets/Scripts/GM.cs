@@ -35,6 +35,8 @@ public class GM : MonoBehaviour
 
     //PUBLIC ATTRIBUTES
     public bool resetLevel;
+	public bool alarm;
+	public bool pickup;
     public float colCount;
     public float goldColCount;
     public float totalScore;
@@ -179,6 +181,7 @@ public class GM : MonoBehaviour
         updateScore();
         checkPause();
         checkDead();
+		checkRelic ();
         handlePauses();
         resetLevel = false;
     }
@@ -412,5 +415,16 @@ public class GM : MonoBehaviour
         goldNum.text = goldColCount.ToString();
         shotText.text = shots.ToString();
     }
+
+	//Sounds the alarm!
+	public void checkRelic()
+	{
+		//On relic pickup, called from relic scipt, relic script should change pickup to true
+		if (pickup) {
+			alarm = true;
+		}
+		//activate the traps from other scripts
+
+	}
 
 }
